@@ -16,11 +16,10 @@ import javax.swing.JOptionPane;
  */
 public class login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form login
-     */
     public login() {
         initComponents();
+        setSize(350,380);
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -37,6 +36,9 @@ public class login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         Entrar = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -47,13 +49,13 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfUsuario);
-        tfUsuario.setBounds(40, 80, 337, 39);
+        tfUsuario.setBounds(50, 100, 230, 39);
         getContentPane().add(pfSenha);
-        pfSenha.setBounds(40, 160, 340, 40);
+        pfSenha.setBounds(50, 180, 230, 40);
 
         jButton1.setText("Sair");
         getContentPane().add(jButton1);
-        jButton1.setBounds(40, 240, 120, 40);
+        jButton1.setBounds(50, 240, 80, 40);
 
         Entrar.setText("Entrar");
         Entrar.addActionListener(new java.awt.event.ActionListener() {
@@ -62,9 +64,25 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Entrar);
-        Entrar.setBounds(190, 240, 190, 40);
+        Entrar.setBounds(140, 240, 140, 40);
         getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(40, 300, 340, 14);
+        jProgressBar1.setBounds(20, 310, 300, 14);
+
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabel1.setText("Senha:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 160, 130, 18);
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabel2.setText("Usuário:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(50, 80, 130, 18);
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/locadora.jpg"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(-3, -6, 337, 70);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,6 +122,8 @@ public class login extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou Senha inválido(s)",
                     "Video Locadora", JOptionPane.ERROR_MESSAGE);
+                tfUsuario.setText("");
+                pfSenha.setText("");
             }
         }
     }//GEN-LAST:event_EntrarActionPerformed
@@ -146,6 +166,9 @@ public class login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Entrar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField pfSenha;
     private javax.swing.JTextField tfUsuario;
