@@ -115,6 +115,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jTextField7.setBackground(new java.awt.Color(204, 255, 255));
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);

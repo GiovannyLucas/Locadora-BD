@@ -13,8 +13,7 @@ public class FuncionarioDAO extends ExecuteSQL {
         boolean finalResult = false;
         
         try {
-            String consulta  = "SELECT login, senha FROM funcionario" +
-                    "WHERE login = '"+ login + "' AND senha = '"+ senha +"'";
+            String consulta  = "SELECT login, senha FROM funcionario WHERE login = '"+ login + "' AND senha = '"+ senha +"'";
             PreparedStatement ps = getCon().prepareStatement(consulta);
             ResultSet rs = ps.executeQuery();
             
