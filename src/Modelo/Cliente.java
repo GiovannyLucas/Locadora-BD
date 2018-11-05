@@ -3,7 +3,6 @@ package Modelo;
 public class Cliente {
 
     private int Codigo;
-    private String duracao;
     private String Nome;
     private String Nascimento;
     private String RG;
@@ -11,8 +10,25 @@ public class Cliente {
     private String Telefone;
     private String Email;
     private String Bairro;
+    private String Rua;
     private int Numero;
     private String CEP;
+
+    public int getNumero() {
+        return Numero;
+    }
+
+    public void setNumero(int Numero) {
+        this.Numero = Numero;
+    }
+    
+    public String getRua() {
+        return Rua;
+    }
+
+    public void setRua(String Rua) {
+        this.Rua = Rua;
+    }
 
     public int getCodigo() {
         return Codigo;
@@ -20,14 +36,6 @@ public class Cliente {
 
     public void setCodigo(int Codigo) {
         this.Codigo = Codigo;
-    }
-
-    public String getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
     }
 
     public String getNome() {
@@ -84,14 +92,6 @@ public class Cliente {
 
     public void setBairro(String Bairro) {
         this.Bairro = Bairro;
-    }
-
-    public int getNumero() {
-        return Numero;
-    }
-
-    public void setNumero(int Numero) {
-        this.Numero = Numero;
     }
 
     public String getCEP() {
