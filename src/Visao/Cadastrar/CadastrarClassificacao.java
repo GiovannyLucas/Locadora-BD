@@ -54,7 +54,7 @@ public class CadastrarClassificacao extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Categoria");
+        jLabel1.setText("Cadastro de Classificação");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cadastra.png"))); // NOI18N
 
@@ -63,7 +63,7 @@ public class CadastrarClassificacao extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)

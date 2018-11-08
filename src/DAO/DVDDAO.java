@@ -1,23 +1,25 @@
 package DAO;
 
-import Modelo.Classificacao;
+import Modelo.DVD;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassificacaoDAO extends ExecuteSQL {
+public class DVDDAO extends ExecuteSQL {
 
-    public ClassificacaoDAO(Connection con) {
+    public DVDDAO(Connection con) {
         super(con);
     }
 
-    public String Inserir_Classificacao(Classificacao a) {
-        String sql = "INSERT INTO classificacao VALUES (0,?,?)";
+    public String Inserir_DVD(DVD a) {
+        String sql = "INSERT INTO dvd VALUES (0,?,?,?,?)";
         try {
-            PreparedStatement ps = getCon().prepareStatement(sql);
+            PreparedStatement ps = getCon().prepareStatement(sql); 
 
-            ps.setString(1, a.getNome());
+            ps.setInt(1, a.getCod_filme());
             ps.setDouble(2, a.getPreco());
+            ps.setString(3, a.getData_compra());
+            ps.setString(4, a.getSituacao());
             
             if (ps.executeUpdate() > 0) {
                 return "Inserido com sucesso!";
@@ -29,9 +31,9 @@ public class ClassificacaoDAO extends ExecuteSQL {
         }
     }
     
-    public List<Classificacao> ListarClassificacao() {
-        String sql = "SELECT idclassificacao,nome,preco from classificacao";
-        List<Classificacao> lista = new ArrayList<>();
+    public List<DVD> ListarDVD() {
+        String sql = "SELECT iddvd,idfilme,preco_compra,data_compra,situacao from dvd";
+        List<DVD> lista = new ArrayList<>();
             
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -39,10 +41,12 @@ public class ClassificacaoDAO extends ExecuteSQL {
             
             if (rs != null) {
                 while (rs.next()) {
-                    Classificacao a = new Classificacao();
+                    DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
-                    a.setNome(rs.getString(2));
+                    a.setCod_filme(rs.getInt(2));
                     a.setPreco(rs.getDouble(3));
+                    a.setData_compra(rs.getString(4));
+                    a.setSituacao(rs.getString(5));
                     
                     lista.add(a);
                 }
@@ -56,11 +60,11 @@ public class ClassificacaoDAO extends ExecuteSQL {
     
     }
     
-    public List<Classificacao> Pesquisar_Nome_Classificacao(String nome){
-        String sql = "SELECT idclassificacao,nome,preco "
-                + "FROM classificacao WHERE nome LIKE '"+ nome +"%'";
+    public List<DVD> Pesquisar_Cod_iddvd(String id){
+        String sql = "SELECT iddvd,idfilme"
+                + "FROM dvd WHERE iddvd LIKE '"+ id +"%'";
        
-        List<Classificacao> lista = new ArrayList<>();
+        List<DVD> lista = new ArrayList<>();
             
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -68,9 +72,12 @@ public class ClassificacaoDAO extends ExecuteSQL {
             
             if (rs != null) {
                 while (rs.next()) {
-                    Classificacao a = new Classificacao();
+                    DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
-                    a.setNome(rs.getString(2));
+                    a.setCod_filme(rs.getInt(2));
+                    a.setPreco(rs.getDouble(3));
+                    a.setData_compra(rs.getString(4));
+                    a.setSituacao(rs.getString(5));
                     
                     lista.add(a);
                 }
@@ -84,11 +91,11 @@ public class ClassificacaoDAO extends ExecuteSQL {
         
     }
 
-    public List<Classificacao> Pesquisar_Cod_Classificacao(int cod){
-        String sql = "SELECT idclassificacao,nome,preco "
-                + " FROM categoria WHERE idcliente = '"+ cod +"'";
+    public List<DVD> Pesquisar_Cod_idfilme(int cod){
+        String sql = "SELECT iddvd,idfilme"
+                + " FROM dvd WHERE iddvd = '"+ cod +"'";
        
-        List<Classificacao> lista = new ArrayList<>();
+        List<DVD> lista = new ArrayList<>();
             
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -96,10 +103,12 @@ public class ClassificacaoDAO extends ExecuteSQL {
             
             if (rs != null) {
                 while (rs.next()) {
-                    Classificacao a = new Classificacao();
+                    DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
-                    a.setNome(rs.getString(2));
+                    a.setCod_filme(rs.getInt(2));
                     a.setPreco(rs.getDouble(3));
+                    a.setData_compra(rs.getString(4));
+                    a.setSituacao(rs.getString(5));
                     
                     lista.add(a);
                 }
@@ -112,11 +121,10 @@ public class ClassificacaoDAO extends ExecuteSQL {
         }   
     }
 
-    public boolean Testar_Classificacao(int cod){
+    public boolean Testar_DVD(int cod){
         Boolean Resultado = false;
         try {
-            String sql = "SELECT * FROM classificacao WHERE idclassificacao = "
-                    + cod + "";
+            String sql = "SELECT * FROM dvd WHERE iddvd = "+ cod +"";
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
@@ -131,18 +139,20 @@ public class ClassificacaoDAO extends ExecuteSQL {
         return Resultado;
     }
     
-    public List<Classificacao> CapturarClassificacao(int cod){
-        String sql = "SELECT * FROM classificacao WHERE idclassificacao = "+ cod +"";
-        List<Classificacao> lista = new ArrayList<>();
+    public List<DVD> CapturarDVD(int cod){
+        String sql = "SELECT * FROM dvd WHERE iddvd = "+ cod + "";
+        List<DVD> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs != null) {
                 while (rs.next()) {                    
-                    Classificacao a = new Classificacao();
+                    DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
-                    a.setNome(rs.getString(2));
+                    a.setCod_filme(rs.getInt(2));
                     a.setPreco(rs.getDouble(3));
+                    a.setData_compra(rs.getString(4));
+                    a.setSituacao(rs.getString(5));
                     
                     lista.add(a);
                 }
@@ -155,14 +165,15 @@ public class ClassificacaoDAO extends ExecuteSQL {
         }
     }
     
-    public String Alterar_Classificacao(Classificacao a){
-        String sql = "UPDATE classificacao SET nome = ?, preco = ? WHERE idclassificacao = ?";
+    public String Alterar_DVD(DVD a){
+        String sql = "UPDATE dvd SET preco_compra = ?,data_compra = ?, situacao = ? WHERE iddvd = ?";
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
-            ps.setString(1, a.getNome());
             ps.setDouble(1, a.getPreco());
+            ps.setString(2, a.getData_compra());
+            ps.setString(1, a.getSituacao());
             
             if (ps.executeUpdate() > 0) {
                 return "Atualizado com sucesso!";
@@ -174,17 +185,17 @@ public class ClassificacaoDAO extends ExecuteSQL {
         }
     }
     
-    public List<Classificacao> ListarComboClassificacao(){
-        String sql = "SELECT nome FROM classificacao ORDER BY nome";
-        List<Classificacao> lista = new ArrayList<>();
+    public List<DVD> ListarComboDVD(){
+        String sql = "SELECT nome FROM filme ORDER BY nome";
+        List<DVD> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             if (rs != null) {
                 while (rs.next()) {
-                    Classificacao a = new Classificacao();
-                    a.setNome(rs.getString(1));
+                    DVD a = new DVD();
+                    a.setSituacao(rs.getString(1));
                     lista.add(a);
                 }
                 return lista;
@@ -196,16 +207,16 @@ public class ClassificacaoDAO extends ExecuteSQL {
         }
     }
     
-    public List<Classificacao> ConsultaCodigoClassificacao(String nome){
-        String sql = "SELECT idclassificacao FROM classificacao WHERE nome = '"+ nome +"'";
-        List<Classificacao> lista = new ArrayList<>();
+    public List<DVD> ConsultaCodigoDVD(String nome){
+        String sql = "SELECT iddvd FROM dvd WHERE idfilme = '"+ nome +"'";
+        List<DVD> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             if (rs != null) {
                 while (rs.next()) {
-                    Classificacao a = new Classificacao();
+                    DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
                     lista.add(a);
                 }
@@ -218,13 +229,12 @@ public class ClassificacaoDAO extends ExecuteSQL {
         }
     }
     
-    public String Excluir_Classificacao(Classificacao a){
-        String sql = "DELETE FROM classificacao WHERE idclassificacao = ? AND nome = ?";
+    public String Excluir_DVD(DVD a){
+        String sql = "DELETE FROM dvd WHERE iddvd = ? AND idfilme = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setInt(0, a.getCodigo());
-            ps.setString(1, a.getNome());
-            ps.setDouble(2, a.getPreco());
+            ps.setDouble(1, a.getPreco());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

@@ -196,7 +196,7 @@ public class FilmeDAO extends ExecuteSQL {
         }
     }
     
-    public List<Filme> ListarComboCliente(){
+    public List<Filme> ListarComboFilme(){
         String sql = "SELECT titulo FROM filme ORDER BY titulo";
         List<Filme> lista = new ArrayList<>();
         try {
@@ -223,8 +223,8 @@ public class FilmeDAO extends ExecuteSQL {
         }
     }
     
-    public List<Filme> ConsultaCodigoCliente(String nome){
-        String sql = "SELECT idfilme FROM filme WHERE titulo = '"+ nome +"'";
+    public List<Filme> ConsultaCodigoFilme(String nome){
+        String sql = "SELECT titulo FROM filme WHERE titulo = '"+ nome +"'";
         List<Filme> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -250,7 +250,7 @@ public class FilmeDAO extends ExecuteSQL {
         }
     }
     
-    public String Excluir_Cliente(Filme a){
+    public String Excluir_Filme(Filme a){
         String sql = "DELETE FROM filme WHERE idfilme = ? AND titulo = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);

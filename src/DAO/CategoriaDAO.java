@@ -84,7 +84,7 @@ public class CategoriaDAO extends ExecuteSQL {
 
     public List<Categoria> Pesquisar_Cod_Categoria(int cod){
         String sql = "SELECT idcategoria, nome"
-                + " FROM categoria WHERE idcliente = '"+ cod +"'";
+                + " FROM categoria WHERE idcategoria = '"+ cod +"'";
        
         List<Categoria> lista = new ArrayList<>();
             
