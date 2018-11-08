@@ -1,31 +1,23 @@
 package DAO;
 
-import Modelo.Cliente;
+import Modelo.Classificacao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteDAO extends ExecuteSQL {
+public class ClassificacaoDAO extends ExecuteSQL {
 
-    public ClienteDAO(Connection con) {
+    public ClassificacaoDAO(Connection con) {
         super(con);
     }
 
-    public String Inserir_Cliente(Cliente a) {
-        String sql = "INSERT INTO cliente VALUES (0,?,?,?,?,?,?,?,?,?,?)";
+    public String Inserir_Classificacao(Classificacao a) {
+        String sql = "INSERT INTO classificacao VALUES (0,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            
+
             ps.setString(1, a.getNome());
-            ps.setString(2, a.getNascimento());
-            ps.setString(3, a.getRG());
-            ps.setString(4, a.getCPF());
-            ps.setString(5, a.getEmail());
-            ps.setString(6, a.getTelefone());
-            ps.setString(7, a.getBairro());
-            ps.setString(8, a.getRua());
-            ps.setInt(9, a.getNumero());
-            ps.setString(10, a.getCEP());
+            ps.setDouble(2, a.getPreco());
             
             if (ps.executeUpdate() > 0) {
                 return "Inserido com sucesso!";
@@ -37,9 +29,9 @@ public class ClienteDAO extends ExecuteSQL {
         }
     }
     
-    public List<Cliente> ListarCliente() {
-        String sql = "SELECT idcliente,nome,rg,cpf,telefone,email from cliente";
-        List<Cliente> lista = new ArrayList<>();
+    public List<Classificacao> ListarClassificacao() {
+        String sql = "SELECT idclassificacao,nome,preco from classificacao";
+        List<Classificacao> lista = new ArrayList<>();
             
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -47,13 +39,10 @@ public class ClienteDAO extends ExecuteSQL {
             
             if (rs != null) {
                 while (rs.next()) {
-                    Cliente a = new Cliente();
+                    Classificacao a = new Classificacao();
                     a.setCodigo(rs.getInt(1));
                     a.setNome(rs.getString(2));
-                    a.setRG(rs.getString(3));
-                    a.setCPF(rs.getString(4));
-                    a.setTelefone(rs.getString(5));
-                    a.setEmail(rs.getString(6));
+                    a.setPreco(rs.getDouble(3));
                     
                     lista.add(a);
                 }
@@ -67,11 +56,11 @@ public class ClienteDAO extends ExecuteSQL {
     
     }
     
-    public List<Cliente> Pesquisar_Nome_Cliente(String nome){
-        String sql = "SELECT idcliente, nome, RG, CPF, Telefone, Email"
-                + "FROM cliente WHERE nome LIKE '"+ nome +"%'";
+    public List<Classificacao> Pesquisar_Nome_Classificacao(String nome){
+        String sql = "SELECT idclassificacao,nome,preco "
+                + "FROM classificacao WHERE nome LIKE '"+ nome +"%'";
        
-        List<Cliente> lista = new ArrayList<>();
+        List<Classificacao> lista = new ArrayList<>();
             
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -79,13 +68,9 @@ public class ClienteDAO extends ExecuteSQL {
             
             if (rs != null) {
                 while (rs.next()) {
-                    Cliente a = new Cliente();
+                    Classificacao a = new Classificacao();
                     a.setCodigo(rs.getInt(1));
                     a.setNome(rs.getString(2));
-                    a.setRG(rs.getString(3));
-                    a.setCPF(rs.getString(4));
-                    a.setTelefone(rs.getString(5));
-                    a.setEmail(rs.getString(6));
                     
                     lista.add(a);
                 }
@@ -99,11 +84,11 @@ public class ClienteDAO extends ExecuteSQL {
         
     }
 
-    public List<Cliente> Pesquisar_Cod_Cliente(int cod){
-        String sql = "SELECT idcliente, nome, RG, CPF, Telefone, Email"
-                + "FROM cliente WHERE idcliente = '"+ cod +"'";
+    public List<Classificacao> Pesquisar_Cod_Classificacao(int cod){
+        String sql = "SELECT idclassificacao,nome,preco "
+                + " FROM categoria WHERE idcliente = '"+ cod +"'";
        
-        List<Cliente> lista = new ArrayList<>();
+        List<Classificacao> lista = new ArrayList<>();
             
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -111,13 +96,10 @@ public class ClienteDAO extends ExecuteSQL {
             
             if (rs != null) {
                 while (rs.next()) {
-                    Cliente a = new Cliente();
+                    Classificacao a = new Classificacao();
                     a.setCodigo(rs.getInt(1));
                     a.setNome(rs.getString(2));
-                    a.setRG(rs.getString(3));
-                    a.setCPF(rs.getString(4));
-                    a.setTelefone(rs.getString(5));
-                    a.setEmail(rs.getString(6));
+                    a.setPreco(rs.getDouble(3));
                     
                     lista.add(a);
                 }
@@ -130,10 +112,10 @@ public class ClienteDAO extends ExecuteSQL {
         }   
     }
 
-    public boolean Testar_Cliente(int cod){
+    public boolean Testar_Classificacao(int cod){
         Boolean Resultado = false;
         try {
-            String sql = "SELECT * FROM ciente WHERE idcliente = "
+            String sql = "SELECT * FROM classificacao WHERE idclassificacao = "
                     + cod + "";
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -149,26 +131,19 @@ public class ClienteDAO extends ExecuteSQL {
         return Resultado;
     }
     
-    public List<Cliente> CapturarCliente(int cod){
-        String sql = "SELECT * FROM cliente WHERE idcliente = "+ cod + "";
-        List<Cliente> lista = new ArrayList<>();
+    public List<Classificacao> CapturarClassificacao(int cod){
+        String sql = "SELECT * FROM classificacao WHERE idclassificacao = "+ cod +"";
+        List<Classificacao> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs != null) {
                 while (rs.next()) {                    
-                    Cliente a = new Cliente();
+                    Classificacao a = new Classificacao();
                     a.setCodigo(rs.getInt(1));
                     a.setNome(rs.getString(2));
-                    a.setNascimento(rs.getString(3));
-                    a.setRG(rs.getString(4));
-                    a.setCPF(rs.getString(5));
-                    a.setEmail(rs.getString(6));
-                    a.setTelefone(rs.getString(7));
-                    a.setBairro(rs.getString(8));
-                    a.setRua(rs.getString(9));
-                    a.setNumero(rs.getInt(10));
-                    a.setCEP(rs.getString(11));
+                    a.setPreco(rs.getDouble(3));
+                    
                     lista.add(a);
                 }
                 return lista;
@@ -180,24 +155,15 @@ public class ClienteDAO extends ExecuteSQL {
         }
     }
     
-    public String Alterar_Cliente(Cliente a){
-        String sql = "UPDATE cliente SET nome = ?, data_nasc = ?, rg = ?,"+
-                     "cpf = ?, email = ?, telefone = ?, bairro = ?, rua = ?,"+
-                     "numero = ?, cep = ? WHERE idcliente = ?";
+    public String Alterar_Classificacao(Classificacao a){
+        String sql = "UPDATE classificacao SET nome = ?, preco = ? WHERE idclassificacao = ?";
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
+            
             ps.setString(1, a.getNome());
-            ps.setString(2, a.getNascimento());
-            ps.setString(3, a.getRG());
-            ps.setString(4, a.getCPF());
-            ps.setString(5, a.getEmail());
-            ps.setString(6, a.getTelefone());
-            ps.setString(7, a.getBairro());
-            ps.setString(8, a.getRua());
-            ps.setInt(9, a.getNumero());
-            ps.setString(10, a.getCEP());
-            ps.setInt(11, a.getCodigo());
+            ps.setDouble(1, a.getPreco());
+            
             if (ps.executeUpdate() > 0) {
                 return "Atualizado com sucesso!";
             } else {
@@ -208,16 +174,16 @@ public class ClienteDAO extends ExecuteSQL {
         }
     }
     
-    public List<Cliente> ListarComboCliente(){
-        String sql = "SELECT nome FROM cliente ORDER BY nome";
-        List<Cliente> lista = new ArrayList<>();
+    public List<Classificacao> ListarComboClassificacao(){
+        String sql = "SELECT nome FROM classificacao ORDER BY nome";
+        List<Classificacao> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             if (rs != null) {
                 while (rs.next()) {
-                    Cliente a = new Cliente();
+                    Classificacao a = new Classificacao();
                     a.setNome(rs.getString(1));
                     lista.add(a);
                 }
@@ -230,16 +196,16 @@ public class ClienteDAO extends ExecuteSQL {
         }
     }
     
-    public List<Cliente> ConsultaCodigoCliente(String nome){
-        String sql = "SELECT idcliente FROM cliente WHERE nome = '"+ nome +"'";
-        List<Cliente> lista = new ArrayList<>();
+    public List<Classificacao> ConsultaCodigoClassificacao(String nome){
+        String sql = "SELECT classificacao FROM classificacao WHERE nome = '"+ nome +"'";
+        List<Classificacao> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             if (rs != null) {
                 while (rs.next()) {
-                    Cliente a = new Cliente();
+                    Classificacao a = new Classificacao();
                     a.setCodigo(rs.getInt(1));
                     lista.add(a);
                 }
@@ -252,12 +218,13 @@ public class ClienteDAO extends ExecuteSQL {
         }
     }
     
-    public String Excluir_Cliente(Cliente a){
-        String sql = "DELETE FROM cliente WHERE idcliente = ? AND nome = ?";
+    public String Excluir_Classificacao(Classificacao a){
+        String sql = "DELETE FROM classificacao WHERE idclassificacao = ? AND nome = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setInt(0, a.getCodigo());
             ps.setString(0, a.getNome());
+            ps.setDouble(0, a.getPreco());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

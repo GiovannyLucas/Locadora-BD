@@ -457,10 +457,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     jTF_RG.setText(""); 
     
     JOptionPane.showMessageDialog(null, "Cadastro finalizado com sucesso!",
-            "Video Locadora", JOptionPane.INFORMATION_MESSAGE);
-    
-    dispose();
-            
+            "Video Locadora", JOptionPane.INFORMATION_MESSAGE);            
         }
     }//GEN-LAST:event_CadastrarActionPerformed
 
