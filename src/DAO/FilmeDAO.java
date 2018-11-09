@@ -207,11 +207,6 @@ public class FilmeDAO extends ExecuteSQL {
                 while (rs.next()) {
                     Filme a = new Filme();
                     a.setTitulo(rs.getString(1));
-                    a.setAno(rs.getInt(2));
-                    a.setDuracao(rs.getString(3));
-                    a.setCod_categoria(rs.getInt(4));
-                    a.setCod_classificacao(rs.getInt(5));
-                    a.setCapa(rs.getString(6));
                     lista.add(a);
                 }
                 return lista;
@@ -224,7 +219,7 @@ public class FilmeDAO extends ExecuteSQL {
     }
     
     public List<Filme> ConsultaCodigoFilme(String nome){
-        String sql = "SELECT titulo FROM filme WHERE titulo = '"+ nome +"'";
+        String sql = "SELECT idfilme FROM filme WHERE titulo = '"+ nome +"'";
         List<Filme> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -233,12 +228,7 @@ public class FilmeDAO extends ExecuteSQL {
             if (rs != null) {
                 while (rs.next()) {
                     Filme a = new Filme();
-                    a.setTitulo(rs.getString(1));
-                    a.setAno(rs.getInt(2));
-                    a.setDuracao(rs.getString(3));
-                    a.setCod_categoria(rs.getInt(4));
-                    a.setCod_classificacao(rs.getInt(5));
-                    a.setCapa(rs.getString(6));
+                    a.setCodigo(rs.getInt(1));
                     lista.add(a);
                 }
                 return lista;

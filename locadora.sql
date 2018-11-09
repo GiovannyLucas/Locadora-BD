@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Out-2018 às 13:46
+-- Generation Time: 09-Nov-2018 às 13:33
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -48,6 +48,13 @@ CREATE TABLE `categoria` (
   `nome` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`idcategoria`, `nome`) VALUES
+(1, 'Ação');
+
 -- --------------------------------------------------------
 
 --
@@ -56,9 +63,20 @@ CREATE TABLE `categoria` (
 
 CREATE TABLE `classificacao` (
   `idclassificacao` int(11) NOT NULL,
-  `nome` varchar(20) NOT NULL,
-  `preco` double NOT NULL
+  `nome` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `classificacao`
+--
+
+INSERT INTO `classificacao` (`idclassificacao`, `nome`) VALUES
+(1, 'Maiores de 18'),
+(2, 'Maiores de 16'),
+(3, 'Maiores de 14'),
+(4, 'Maiores de 12'),
+(5, 'Maiores de 10'),
+(6, 'Livre');
 
 -- --------------------------------------------------------
 
@@ -80,6 +98,13 @@ CREATE TABLE `cliente` (
   `cep` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `telefone`, `bairro`, `rua`, `numero`, `cep`) VALUES
+(1, 'Manuel Gustavo', '29/05/2002', '351.654.555', '122.112.122-12', 'peduelsinho@gmail.com', '(84)9.8159-3563', 'Baixada', 'Ademar Liberato', 512, '59920-000');
+
 -- --------------------------------------------------------
 
 --
@@ -90,9 +115,18 @@ CREATE TABLE `dvd` (
   `iddvd` int(11) NOT NULL,
   `idfilme` int(11) NOT NULL,
   `preco_compra` double DEFAULT NULL,
-  `data_compra` varchar(10) DEFAULT NULL,
+  `data_compra` varchar(50) DEFAULT NULL,
   `situacao` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `dvd`
+--
+
+INSERT INTO `dvd` (`iddvd`, `idfilme`, `preco_compra`, `data_compra`, `situacao`) VALUES
+(1, 1, 25, 'dd/MM/yyyy', 'Disponível'),
+(2, 1, 514.46, 'dd/MM/yyyy', 'Disponível'),
+(3, 1, 444.44, 'Fri Nov 09 08:14:03 GFT 2018', 'Disponível');
 
 -- --------------------------------------------------------
 
@@ -109,6 +143,13 @@ CREATE TABLE `filme` (
   `idclassificacao` int(11) NOT NULL,
   `capa` varchar(80) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `filme`
+--
+
+INSERT INTO `filme` (`idfilme`, `titulo`, `ano`, `duracao`, `idcategoria`, `idclassificacao`, `capa`) VALUES
+(1, 'A última música', 2013, '120:00', 1, 1, '4.jpg');
 
 -- --------------------------------------------------------
 
@@ -128,7 +169,8 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`idfuncionario`, `nome`, `login`, `senha`) VALUES
-(1, 'Administrador', 'qwe', '123');
+(1, 'Administrador', 'qwe', '123'),
+(2, 'Giovanny', 'Giova', '12345');
 
 --
 -- Indexes for dumped tables
@@ -195,37 +237,37 @@ ALTER TABLE `aluguel`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `classificacao`
 --
 ALTER TABLE `classificacao`
-  MODIFY `idclassificacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idclassificacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `dvd`
 --
 ALTER TABLE `dvd`
-  MODIFY `iddvd` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iddvd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `filme`
 --
 ALTER TABLE `filme`
-  MODIFY `idfilme` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfilme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

@@ -84,7 +84,7 @@ public class AlterarFuncionario extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 370, 610, 60);
+        jPanel3.setBounds(0, 370, 610, 50);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);

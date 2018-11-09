@@ -3,6 +3,7 @@ package Visao.Cadastrar;
 import DAO.ClienteDAO;
 import DAO.Conexao;
 import Modelo.Cliente;
+import Principal.Menu;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -11,7 +12,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     public CadastrarCliente() {
         initComponents();
         setLocationRelativeTo(this);
-
+        setTitle("Video Locadora");
     }
 
     /**
@@ -53,7 +54,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         jTF_Nascimento = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
         Cadastrar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jTF_Cancelar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -132,6 +133,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
+        jTF_Numero.setEditable(false);
         jTF_Numero.setBackground(new java.awt.Color(204, 255, 255));
         jTF_Numero.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jTF_Numero.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +277,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTF_Nascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,9 +331,19 @@ public class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Cancelar");
+        jTF_Cancelar.setText("Cancelar");
+        jTF_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_CancelarActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -342,8 +354,8 @@ public class CadastrarCliente extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(Cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(jTF_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
         );
         jPanel3Layout.setVerticalGroup(
@@ -351,7 +363,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTF_Cancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -465,6 +477,24 @@ public class CadastrarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTF_NascimentoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jTF_Nome.setText("");
+        jTF_Nascimento.setText("");
+        jTF_CEP.setText("");
+        jTF_Rua.setText("");
+        jTF_Numero.setText("");
+        jTF_Bairro.setText("");
+        jTF_Email.setText("");
+        jTF_Telefone.setText("");
+        tfCPF.setText("");
+        jTF_RG.setText(""); 
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTF_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_CancelarActionPerformed
+        new Menu().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jTF_CancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -504,7 +534,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -524,6 +553,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTF_Bairro;
     private javax.swing.JFormattedTextField jTF_CEP;
+    private javax.swing.JButton jTF_Cancelar;
     private javax.swing.JTextField jTF_Email;
     private javax.swing.JFormattedTextField jTF_Nascimento;
     private javax.swing.JTextField jTF_Nome;
