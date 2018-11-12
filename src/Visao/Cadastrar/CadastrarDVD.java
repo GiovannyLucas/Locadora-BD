@@ -5,11 +5,9 @@
  */
 package Visao.Cadastrar;
 
-import DAO.CategoriaDAO;
 import DAO.DVDDAO;
 import DAO.Conexao;
 import DAO.FilmeDAO;
-import Modelo.Categoria;
 import Modelo.DVD;
 import Modelo.Filme;
 import Principal.Menu;
@@ -100,13 +98,13 @@ public class CadastrarDVD extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jLabel13)))
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N

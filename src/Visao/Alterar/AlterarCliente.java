@@ -3,6 +3,7 @@ package Visao.Alterar;
 import DAO.ClienteDAO;
 import DAO.Conexao;
 import Modelo.Cliente;
+import Principal.Menu;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,9 @@ public class AlterarCliente extends javax.swing.JFrame {
 
     public AlterarCliente() {
         initComponents();
-        setSize(632, 530);
+        setSize(625, 518);
         setLocationRelativeTo(this);
+        setTitle("Video Locadora");
     }
 
     private void InserirDados(int cod){
@@ -77,15 +79,16 @@ public class AlterarCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        bTN_Alterar = new javax.swing.JButton();
+        bTN_Cancelar = new javax.swing.JButton();
+        bTN_Limpar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTF_cod = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -118,6 +121,7 @@ public class AlterarCliente extends javax.swing.JFrame {
             }
         });
 
+        jTF_Codigo.setEditable(false);
         jTF_Codigo.setBackground(new java.awt.Color(204, 255, 255));
         jTF_Codigo.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jTF_Codigo.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +215,7 @@ public class AlterarCliente extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jLabel8)
@@ -256,12 +260,12 @@ public class AlterarCliente extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTF_Nascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTF_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -298,7 +302,7 @@ public class AlterarCliente extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jTF_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
@@ -322,9 +326,9 @@ public class AlterarCliente extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         getContentPane().add(jPanel1);
@@ -332,16 +336,26 @@ public class AlterarCliente extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton2.setText("Alterar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bTN_Alterar.setText("Alterar");
+        bTN_Alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bTN_AlterarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Cancelar");
+        bTN_Cancelar.setText("Cancelar");
+        bTN_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTN_CancelarActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Limpar");
+        bTN_Limpar.setText("Limpar");
+        bTN_Limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTN_LimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -349,11 +363,11 @@ public class AlterarCliente extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bTN_Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bTN_Alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(112, 112, 112)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bTN_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -361,9 +375,9 @@ public class AlterarCliente extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bTN_Alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bTN_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bTN_Limpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -478,7 +492,7 @@ public class AlterarCliente extends javax.swing.JFrame {
     jTF_cod.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bTN_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTN_AlterarActionPerformed
     String codigo = jTF_Codigo.getText();
     String nome = jTF_Nome.getText();
     String nascimento = jTF_Nascimento.getText();
@@ -516,6 +530,7 @@ public class AlterarCliente extends javax.swing.JFrame {
         sql.Alterar_Cliente(a);
         Conexao.FecharConexao((com.mysql.jdbc.Connection) con);
 
+        jTF_Codigo.setText("");
         jTF_Nome.setText("");
         jTF_CEP.setText("");
         jTF_Numero.setText("");
@@ -527,11 +542,30 @@ public class AlterarCliente extends javax.swing.JFrame {
         jTF_RG.setText("");
         jTF_CPF.setText("");     
         
-        JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!",
+        JOptionPane.showMessageDialog(null, "Update realizado com sucesso!",
                     "Video Locadora", JOptionPane.INFORMATION_MESSAGE);
-    dispose();    
+  
     }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bTN_AlterarActionPerformed
+
+    private void bTN_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTN_LimparActionPerformed
+        jTF_Codigo.setText("");
+        jTF_Nome.setText("");
+        jTF_CEP.setText("");
+        jTF_Numero.setText("");
+        jTF_Bairro.setText("");
+        jTF_Email.setText("");
+        jTF_Telefone.setText("");
+        jTF_Rua.setText("");
+        jTF_Nascimento.setText("");
+        jTF_RG.setText("");
+        jTF_CPF.setText(""); 
+    }//GEN-LAST:event_bTN_LimparActionPerformed
+
+    private void bTN_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTN_CancelarActionPerformed
+        new Menu().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bTN_CancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -569,9 +603,9 @@ public class AlterarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton bTN_Alterar;
+    private javax.swing.JButton bTN_Cancelar;
+    private javax.swing.JButton bTN_Limpar;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

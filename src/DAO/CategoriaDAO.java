@@ -129,7 +129,7 @@ public class CategoriaDAO extends ExecuteSQL {
     }
     
     public List<Categoria> CapturarCategoria(int cod){
-        String sql = "SELECT * FROM categoria WHERE idclategoria = "+ cod + "";
+        String sql = "SELECT * FROM categoria WHERE idcategoria = "+ cod + "";
         List<Categoria> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -158,6 +158,7 @@ public class CategoriaDAO extends ExecuteSQL {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
             ps.setString(1, a.getNome());
+            ps.setInt(2, a.getCodigo());
             
             if (ps.executeUpdate() > 0) {
                 return "Atualizado com sucesso!";

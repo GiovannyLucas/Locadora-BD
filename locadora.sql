@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Nov-2018 às 13:33
+-- Generation Time: 12-Nov-2018 às 12:14
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -76,7 +76,7 @@ INSERT INTO `classificacao` (`idclassificacao`, `nome`) VALUES
 (3, 'Maiores de 14'),
 (4, 'Maiores de 12'),
 (5, 'Maiores de 10'),
-(6, 'Livre');
+(6, 'Livre para todos');
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `telefone`, `bairro`, `rua`, `numero`, `cep`) VALUES
-(1, 'Manuel Gustavo', '29/05/2002', '351.654.555', '122.112.122-12', 'peduelsinho@gmail.com', '(84)9.8159-3563', 'Baixada', 'Ademar Liberato', 512, '59920-000');
+(1, 'Manuel Gustevo', '29/05/2002', '351.654.555x', '122.112.122-11', 'peduelsinho@gmail.com', '(84)9.8159-3564', 'Centro', 'Ademar Liberato', 512, '59920-000');
 
 -- --------------------------------------------------------
 
@@ -124,9 +124,8 @@ CREATE TABLE `dvd` (
 --
 
 INSERT INTO `dvd` (`iddvd`, `idfilme`, `preco_compra`, `data_compra`, `situacao`) VALUES
-(1, 1, 25, 'dd/MM/yyyy', 'Disponível'),
-(2, 1, 514.46, 'dd/MM/yyyy', 'Disponível'),
-(3, 1, 444.44, 'Fri Nov 09 08:14:03 GFT 2018', 'Disponível');
+(3, 1, 444.44, 'Fri Nov 09 08:14:03 GFT 2018', 'Disponível'),
+(4, 2, 25, 'Sun Nov 11 12:47:01 GFT 2018', 'Disponível');
 
 -- --------------------------------------------------------
 
@@ -149,7 +148,8 @@ CREATE TABLE `filme` (
 --
 
 INSERT INTO `filme` (`idfilme`, `titulo`, `ano`, `duracao`, `idcategoria`, `idclassificacao`, `capa`) VALUES
-(1, 'A última música', 2013, '120:00', 1, 1, '4.jpg');
+(1, 'A última música', 2013, '120:00', 1, 1, '4.jpg'),
+(2, 'Foi assim', 2017, '180:00', 1, 5, '3.jpg');
 
 -- --------------------------------------------------------
 
@@ -169,8 +169,8 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`idfuncionario`, `nome`, `login`, `senha`) VALUES
-(1, 'Administrador', 'qwe', '123'),
-(2, 'Giovanny', 'Giova', '12345');
+(1, 'Administrador', 'First', '12345'),
+(2, 'Giovanny', 'Giova', 'qwerty');
 
 --
 -- Indexes for dumped tables
@@ -255,13 +255,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT for table `dvd`
 --
 ALTER TABLE `dvd`
-  MODIFY `iddvd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `iddvd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `filme`
 --
 ALTER TABLE `filme`
-  MODIFY `idfilme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfilme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `funcionario`

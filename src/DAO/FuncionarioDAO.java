@@ -169,6 +169,7 @@ public class FuncionarioDAO extends ExecuteSQL {
                     a.setCod(rs.getInt(1));
                     a.setNome(rs.getString(2));
                     a.setLogin(rs.getString(3));
+                    a.setSenha(rs.getString(4));
                     
                     lista.add(a);
                 }
@@ -190,6 +191,7 @@ public class FuncionarioDAO extends ExecuteSQL {
             ps.setString(1, a.getNome());
             ps.setString(2, a.getLogin());
             ps.setString(3, a.getSenha());
+            ps.setInt(4, a.getCod());
             
             if (ps.executeUpdate() > 0) {
                 return "Atualizado com sucesso!";
