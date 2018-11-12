@@ -177,14 +177,19 @@ public class FilmeDAO extends ExecuteSQL {
     
     public String Alterar_Filme(Filme a){
         String sql = "UPDATE filme SET titulo = ?, ano = ?,"+
-                     "duracao = ?, capa = ? WHERE idfilme = ?";
+                     "duracao = ?, idcategoria = ?, idclassificacao = ?,"+
+                     " capa = ? WHERE idfilme = ?";
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setString(1, a.getTitulo());
             ps.setInt(2, a.getAno());
             ps.setString(3, a.getDuracao());
-            ps.setString(4, a.getCapa());
+            ps.setInt(4, a.getCod_categoria());
+            ps.setInt(5, a.getCod_classificacao());
+            ps.setString(6, a.getCapa());
+            
+            ps.setInt(7, a.getCodigo());
             
             if (ps.executeUpdate() > 0) {
                 return "Atualizado com sucesso!";
@@ -217,6 +222,29 @@ public class FilmeDAO extends ExecuteSQL {
             return null;
         }
     }
+
+    public List<Filme> ListarComboDuasTabelas(){
+        String sql = "SELECT * FROM filme d INNER JOIN dvd f ON (d.idfilme = f.idfilme)";
+        List<Filme> lista = new ArrayList<>();
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs != null) {
+                while (rs.next()) {
+                    Filme a = new Filme();
+                    a.setCodigo(rs.getInt(8));
+                    a.setTitulo(rs.getString(1));
+                    lista.add(a);
+                }
+                return lista;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }    
     
     public List<Filme> ConsultaCodigoFilme(String nome){
         String sql = "SELECT idfilme FROM filme WHERE titulo = '"+ nome +"'";

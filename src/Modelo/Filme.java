@@ -9,6 +9,15 @@ public class Filme {
     private int cod_categoria;
     private int cod_classificacao;
     private String capa;
+    private String nome_class;
+
+    public String getNome_class() {
+        return nome_class;
+    }
+
+    public void setNome_class(String nome_class) {
+        this.nome_class = nome_class;
+    }
 
     public int getCodigo() {
         return codigo;

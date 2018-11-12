@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Nov-2018 às 12:14
+-- Generation Time: 12-Nov-2018 às 22:46
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -124,7 +124,7 @@ CREATE TABLE `dvd` (
 --
 
 INSERT INTO `dvd` (`iddvd`, `idfilme`, `preco_compra`, `data_compra`, `situacao`) VALUES
-(3, 1, 444.44, 'Fri Nov 09 08:14:03 GFT 2018', 'Disponível'),
+(3, 2, 75, 'Mon Nov 12 16:37:42 GFT 2018', 'Disponível'),
 (4, 2, 25, 'Sun Nov 11 12:47:01 GFT 2018', 'Disponível');
 
 -- --------------------------------------------------------
@@ -148,8 +148,8 @@ CREATE TABLE `filme` (
 --
 
 INSERT INTO `filme` (`idfilme`, `titulo`, `ano`, `duracao`, `idcategoria`, `idclassificacao`, `capa`) VALUES
-(1, 'A última música', 2013, '120:00', 1, 1, '4.jpg'),
-(2, 'Foi assim', 2017, '180:00', 1, 5, '3.jpg');
+(1, 'A última música', 2007, '125:30', 1, 4, '1.jpg'),
+(2, 'Foi assim', 2017, '180:15', 1, 6, '3.jpg');
 
 -- --------------------------------------------------------
 

@@ -35,6 +35,7 @@ public class CadastrarFilme extends javax.swing.JFrame {
         AtualizaCombo_Cat();
         AtualizaCombo_Class();
         setLocationRelativeTo(this);
+        setTitle("Video Locadora");
     }
     
     private void AtualizaCombo_Cat(){
