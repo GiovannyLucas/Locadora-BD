@@ -68,8 +68,8 @@ public class ClienteDAO extends ExecuteSQL {
     }
     
     public List<Cliente> Pesquisar_Nome_Cliente(String nome){
-        String sql = "SELECT idcliente, nome, RG, CPF, Telefone, Email"
-                + "FROM cliente WHERE nome LIKE '"+ nome +"%'";
+        String sql = "SELECT idcliente, nome, rg, cpf, email, telefone "
+                + "FROM cliente WHERE nome LIKE '%"+ nome +"%'";
        
         List<Cliente> lista = new ArrayList<>();
             
@@ -100,7 +100,7 @@ public class ClienteDAO extends ExecuteSQL {
     }
 
     public List<Cliente> Pesquisar_Cod_Cliente(int cod){
-        String sql = "SELECT idcliente, nome, RG, CPF, Telefone, Email"
+        String sql = "SELECT idcliente, nome, rg, cpf, email, telefone "
                 + "FROM cliente WHERE idcliente = '"+ cod +"'";
        
         List<Cliente> lista = new ArrayList<>();

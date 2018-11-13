@@ -29,7 +29,7 @@ public class CategoriaDAO extends ExecuteSQL {
     }
     
     public List<Categoria> ListarCategoria() {
-        String sql = "SELECT idcategoria,nome from categoria";
+        String sql = "SELECT idcategoria,nome FROM categoria";
         List<Categoria> lista = new ArrayList<>();
             
         try {
@@ -56,7 +56,7 @@ public class CategoriaDAO extends ExecuteSQL {
     
     public List<Categoria> Pesquisar_Nome_Categoria(String nome){
         String sql = "SELECT idcategoria, nome "
-                + "FROM categoria WHERE nome LIKE '"+ nome +"%'";
+                + "FROM categoria WHERE nome LIKE '%"+ nome +"%'";
        
         List<Categoria> lista = new ArrayList<>();
             
@@ -83,8 +83,8 @@ public class CategoriaDAO extends ExecuteSQL {
     }
 
     public List<Categoria> Pesquisar_Cod_Categoria(int cod){
-        String sql = "SELECT idcategoria, nome"
-                + " FROM categoria WHERE idcategoria = '"+ cod +"'";
+        String sql = "SELECT idcategoria, nome "
+                + "FROM categoria WHERE idcategoria = '"+ cod +"'";
        
         List<Categoria> lista = new ArrayList<>();
             

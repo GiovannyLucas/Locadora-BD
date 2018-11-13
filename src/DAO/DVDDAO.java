@@ -60,9 +60,9 @@ public class DVDDAO extends ExecuteSQL {
     
     }
     
-    public List<DVD> Pesquisar_Cod_iddvd(String id){
-        String sql = "SELECT iddvd,idfilme"
-                + "FROM dvd WHERE iddvd LIKE '"+ id +"%'";
+    public List<DVD> Pesquisar_Cod_iddvd(int id){
+        String sql = "SELECT iddvd,idfilme,preco_compra,data_compra,situacao "
+                + "FROM dvd WHERE iddvd = "+ id +"";
        
         List<DVD> lista = new ArrayList<>();
             
@@ -92,8 +92,8 @@ public class DVDDAO extends ExecuteSQL {
     }
 
     public List<DVD> Pesquisar_Cod_idfilme(int cod){
-        String sql = "SELECT iddvd,idfilme"
-                + " FROM dvd WHERE iddvd = '"+ cod +"'";
+        String sql = "SELECT iddvd,idfilme,preco_compra,data_compra,situacao "
+                + "FROM dvd WHERE idfilme = '"+ cod +"'";
        
         List<DVD> lista = new ArrayList<>();
             

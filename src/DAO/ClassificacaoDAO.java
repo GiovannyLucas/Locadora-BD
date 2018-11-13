@@ -56,7 +56,7 @@ public class ClassificacaoDAO extends ExecuteSQL {
     
     public List<Classificacao> Pesquisar_Nome_Classificacao(String nome){
         String sql = "SELECT idclassificacao,nome "
-                + "FROM classificacao WHERE nome LIKE '"+ nome +"%'";
+                + "FROM classificacao WHERE nome LIKE '%"+ nome +"%'";
        
         List<Classificacao> lista = new ArrayList<>();
             
@@ -84,7 +84,7 @@ public class ClassificacaoDAO extends ExecuteSQL {
 
     public List<Classificacao> Pesquisar_Cod_Classificacao(int cod){
         String sql = "SELECT idclassificacao,nome "
-                + " FROM categoria WHERE idcliente = '"+ cod +"'";
+                + "FROM classificacao WHERE idclassificacao = '"+ cod +"'";
        
         List<Classificacao> lista = new ArrayList<>();
             

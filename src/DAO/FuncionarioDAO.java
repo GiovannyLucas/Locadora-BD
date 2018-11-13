@@ -55,7 +55,7 @@ public class FuncionarioDAO extends ExecuteSQL {
     }
     
     public List<Funcionario> ListarFuncionario() {
-        String sql = "SELECT idfuncionario,nome,login,senha from funcionario";
+        String sql = "SELECT idfuncionario,nome,login FROM funcionario";
         List<Funcionario> lista = new ArrayList<>();
             
         try {
@@ -83,7 +83,7 @@ public class FuncionarioDAO extends ExecuteSQL {
     
     public List<Funcionario> Pesquisar_Nome_Funcionario(String nome){
         String sql = "SELECT idfuncionario,nome,login "
-                + "FROM funcionario WHERE nome LIKE '"+ nome +"%'";
+                + "FROM funcionario WHERE nome LIKE '%"+ nome +"%'";
        
         List<Funcionario> lista = new ArrayList<>();
             

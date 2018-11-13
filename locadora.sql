@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Nov-2018 às 22:46
+-- Generation Time: 13-Nov-2018 às 01:50
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -53,7 +53,11 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`idcategoria`, `nome`) VALUES
-(1, 'Ação');
+(1, 'Ação'),
+(2, 'Comédia'),
+(3, 'Romance'),
+(4, 'Drama'),
+(5, 'Futurista');
 
 -- --------------------------------------------------------
 
@@ -103,7 +107,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `telefone`, `bairro`, `rua`, `numero`, `cep`) VALUES
-(1, 'Manuel Gustevo', '29/05/2002', '351.654.555x', '122.112.122-11', 'peduelsinho@gmail.com', '(84)9.8159-3564', 'Centro', 'Ademar Liberato', 512, '59920-000');
+(1, 'Manuel Gustevo', '29/05/2002', '351.654.555x', '122.112.122-11', 'peduelsinho@gmail.com', '(84)9.8159-3564', 'Centro', 'Ademar Liberato', 512, '59920-000'),
+(2, 'Giovanny Lucas', '07/09/2001', '7.358.897', '122.941.424-03', 'geovannylucas@outlook.com', '(84)9.9159-0574', 'Centro', 'Dr. José Torquato', 1064, '59920-000'),
+(3, 'Luiz David', '03/01/2002', '7.358.897', '122.988.614-65', 'luizdosphp@gmail.com', '(84)9.9159-9584', 'Centro', 'Dr. José Torquato', 2520, '59920-000');
 
 -- --------------------------------------------------------
 
@@ -237,7 +243,7 @@ ALTER TABLE `aluguel`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `classificacao`
@@ -249,7 +255,7 @@ ALTER TABLE `classificacao`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `dvd`
