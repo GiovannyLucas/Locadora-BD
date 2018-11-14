@@ -251,8 +251,8 @@ public class FuncionarioDAO extends ExecuteSQL {
         String sql = "DELETE FROM funcionario WHERE idfuncionario = ? AND nome = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(0, a.getCod());
-            ps.setString(1, a.getNome());
+            ps.setInt(1, a.getCod());
+            ps.setString(2, a.getNome());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

@@ -29,7 +29,7 @@ public class ClassificacaoDAO extends ExecuteSQL {
     }
     
     public List<Classificacao> ListarClassificacao() {
-        String sql = "SELECT idclassificacao,nome from classificacao";
+        String sql = "SELECT idclassificacao,nome FROM classificacao";
         List<Classificacao> lista = new ArrayList<>();
             
         try {
@@ -218,8 +218,8 @@ public class ClassificacaoDAO extends ExecuteSQL {
         String sql = "DELETE FROM classificacao WHERE idclassificacao = ? AND nome = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(0, a.getCodigo());
-            ps.setString(1, a.getNome());
+            ps.setInt(1, a.getCodigo());
+            ps.setString(2, a.getNome());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

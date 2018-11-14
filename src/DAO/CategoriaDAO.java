@@ -218,8 +218,8 @@ public class CategoriaDAO extends ExecuteSQL {
         String sql = "DELETE FROM categoria WHERE idcategoria = ? AND nome = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(0, a.getCodigo());
-            ps.setString(0, a.getNome());
+            ps.setInt(1, a.getCodigo());
+            ps.setString(2, a.getNome());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

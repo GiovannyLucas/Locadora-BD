@@ -12,14 +12,15 @@ public class DVDDAO extends ExecuteSQL {
     }
 
     public String Inserir_DVD(DVD a) {
-        String sql = "INSERT INTO dvd VALUES (0,?,?,?,?)";
+        String sql = "INSERT INTO dvd VALUES (0,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql); 
 
             ps.setInt(1, a.getCod_filme());
-            ps.setDouble(2, a.getPreco());
-            ps.setString(3, a.getData_compra());
-            ps.setString(4, a.getSituacao());
+            ps.setString(2, a.getNome_filme());
+            ps.setDouble(3, a.getPreco());
+            ps.setString(4, a.getData_compra());
+            ps.setString(5, a.getSituacao());
             
             if (ps.executeUpdate() > 0) {
                 return "Inserido com sucesso!";
@@ -32,7 +33,7 @@ public class DVDDAO extends ExecuteSQL {
     }
     
     public List<DVD> ListarDVD() {
-        String sql = "SELECT iddvd,idfilme,preco_compra,data_compra,situacao from dvd";
+        String sql = "SELECT iddvd,idfilme,nome_filme,preco_compra,data_compra,situacao FROM dvd";
         List<DVD> lista = new ArrayList<>();
             
         try {
@@ -44,9 +45,10 @@ public class DVDDAO extends ExecuteSQL {
                     DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
                     a.setCod_filme(rs.getInt(2));
-                    a.setPreco(rs.getDouble(3));
-                    a.setData_compra(rs.getString(4));
-                    a.setSituacao(rs.getString(5));
+                    a.setNome_filme(rs.getString(3));
+                    a.setPreco(rs.getDouble(4));
+                    a.setData_compra(rs.getString(5));
+                    a.setSituacao(rs.getString(6));
                     
                     lista.add(a);
                 }
@@ -61,7 +63,7 @@ public class DVDDAO extends ExecuteSQL {
     }
     
     public List<DVD> Pesquisar_Cod_iddvd(int id){
-        String sql = "SELECT iddvd,idfilme,preco_compra,data_compra,situacao "
+        String sql = "SELECT iddvd,idfilme,nome_filme,preco_compra,data_compra,situacao "
                 + "FROM dvd WHERE iddvd = "+ id +"";
        
         List<DVD> lista = new ArrayList<>();
@@ -75,9 +77,10 @@ public class DVDDAO extends ExecuteSQL {
                     DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
                     a.setCod_filme(rs.getInt(2));
-                    a.setPreco(rs.getDouble(3));
-                    a.setData_compra(rs.getString(4));
-                    a.setSituacao(rs.getString(5));
+                    a.setNome_filme(rs.getString(3));
+                    a.setPreco(rs.getDouble(4));
+                    a.setData_compra(rs.getString(5));
+                    a.setSituacao(rs.getString(6));
                     
                     lista.add(a);
                 }
@@ -92,7 +95,7 @@ public class DVDDAO extends ExecuteSQL {
     }
 
     public List<DVD> Pesquisar_Cod_idfilme(int cod){
-        String sql = "SELECT iddvd,idfilme,preco_compra,data_compra,situacao "
+        String sql = "SELECT iddvd,idfilme,nome_filme,preco_compra,data_compra,situacao "
                 + "FROM dvd WHERE idfilme = '"+ cod +"'";
        
         List<DVD> lista = new ArrayList<>();
@@ -106,9 +109,10 @@ public class DVDDAO extends ExecuteSQL {
                     DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
                     a.setCod_filme(rs.getInt(2));
-                    a.setPreco(rs.getDouble(3));
-                    a.setData_compra(rs.getString(4));
-                    a.setSituacao(rs.getString(5));
+                    a.setNome_filme(rs.getString(3));
+                    a.setPreco(rs.getDouble(4));
+                    a.setData_compra(rs.getString(5));
+                    a.setSituacao(rs.getString(6));
                     
                     lista.add(a);
                 }
@@ -150,9 +154,10 @@ public class DVDDAO extends ExecuteSQL {
                     DVD a = new DVD();
                     a.setCodigo(rs.getInt(1));
                     a.setCod_filme(rs.getInt(2));
-                    a.setPreco(rs.getDouble(3));
-                    a.setData_compra(rs.getString(4));
-                    a.setSituacao(rs.getString(5));
+                    a.setNome_filme(rs.getString(3));
+                    a.setPreco(rs.getDouble(4));
+                    a.setData_compra(rs.getString(5));
+                    a.setSituacao(rs.getString(6));
                     
                     lista.add(a);
                 }
@@ -166,16 +171,17 @@ public class DVDDAO extends ExecuteSQL {
     }
     
     public String Alterar_DVD(DVD a){
-        String sql = "UPDATE dvd SET idfilme = ?, preco_compra = ?, data_compra = ?, situacao = ? WHERE iddvd = ?";
+        String sql = "UPDATE dvd SET idfilme = ?, nome_filme = ?, preco_compra = ?, data_compra = ?, situacao = ? WHERE iddvd = ?";
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
             ps.setInt(1, a.getCod_filme());
-            ps.setDouble(2, a.getPreco());
-            ps.setString(3, a.getData_compra());
-            ps.setString(4, a.getSituacao());
-            ps.setInt(5, a.getCodigo());
+            ps.setString(2, a.getNome_filme());
+            ps.setDouble(3, a.getPreco());
+            ps.setString(4, a.getData_compra());
+            ps.setString(5, a.getSituacao());
+            ps.setInt(6, a.getCodigo());
             
             if (ps.executeUpdate() > 0) {
                 return "Atualizado com sucesso!";
@@ -188,7 +194,7 @@ public class DVDDAO extends ExecuteSQL {
     }
     
     public List<DVD> ListarComboDVD(){
-        String sql = "SELECT nome FROM filme ORDER BY nome";
+        String sql = "SELECT nome_filme FROM dvd ORDER BY nome_filme";
         List<DVD> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -197,7 +203,7 @@ public class DVDDAO extends ExecuteSQL {
             if (rs != null) {
                 while (rs.next()) {
                     DVD a = new DVD();
-                    a.setSituacao(rs.getString(1));
+                    a.setNome_filme(rs.getString(1));
                     lista.add(a);
                 }
                 return lista;
@@ -210,7 +216,7 @@ public class DVDDAO extends ExecuteSQL {
     }
     
     public List<DVD> ConsultaCodigoDVD(String nome){
-        String sql = "SELECT iddvd FROM dvd WHERE idfilme = '"+ nome +"'";
+        String sql = "SELECT iddvd FROM dvd WHERE nome_filme = '"+ nome +"'";
         List<DVD> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -232,11 +238,11 @@ public class DVDDAO extends ExecuteSQL {
     }
     
     public String Excluir_DVD(DVD a){
-        String sql = "DELETE FROM dvd WHERE iddvd = ? AND idfilme = ?";
+        String sql = "DELETE FROM dvd WHERE iddvd = ? AND nome_filme = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(0, a.getCodigo());
-            ps.setDouble(1, a.getPreco());
+            ps.setInt(1, a.getCodigo());
+            ps.setString(2, a.getNome_filme());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

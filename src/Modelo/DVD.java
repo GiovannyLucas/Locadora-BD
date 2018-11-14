@@ -4,9 +4,18 @@ public class DVD {
 
     private int codigo;
     private int cod_filme;
+    private String nome_filme;
     private String situacao;
     private double preco;
     private String data_compra;
+
+    public String getNome_filme() {
+        return nome_filme;
+    }
+
+    public void setNome_filme(String nome_filme) {
+        this.nome_filme = nome_filme;
+    }
 
     public int getCodigo() {
         return codigo;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Nov-2018 às 01:50
+-- Generation Time: 14-Nov-2018 às 21:55
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -56,8 +56,7 @@ INSERT INTO `categoria` (`idcategoria`, `nome`) VALUES
 (1, 'Ação'),
 (2, 'Comédia'),
 (3, 'Romance'),
-(4, 'Drama'),
-(5, 'Futurista');
+(4, 'Drama');
 
 -- --------------------------------------------------------
 
@@ -77,9 +76,7 @@ CREATE TABLE `classificacao` (
 INSERT INTO `classificacao` (`idclassificacao`, `nome`) VALUES
 (1, 'Maiores de 18'),
 (2, 'Maiores de 16'),
-(3, 'Maiores de 14'),
 (4, 'Maiores de 12'),
-(5, 'Maiores de 10'),
 (6, 'Livre para todos');
 
 -- --------------------------------------------------------
@@ -107,9 +104,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `telefone`, `bairro`, `rua`, `numero`, `cep`) VALUES
-(1, 'Manuel Gustevo', '29/05/2002', '351.654.555x', '122.112.122-11', 'peduelsinho@gmail.com', '(84)9.8159-3564', 'Centro', 'Ademar Liberato', 512, '59920-000'),
-(2, 'Giovanny Lucas', '07/09/2001', '7.358.897', '122.941.424-03', 'geovannylucas@outlook.com', '(84)9.9159-0574', 'Centro', 'Dr. José Torquato', 1064, '59920-000'),
-(3, 'Luiz David', '03/01/2002', '7.358.897', '122.988.614-65', 'luizdosphp@gmail.com', '(84)9.9159-9584', 'Centro', 'Dr. José Torquato', 2520, '59920-000');
+(1, 'Giovanny', '07/09/2001', '7.486.956', '122.941.424-03', 'geovannylucas@outlook.com', '(84)9.9159-0574', 'Centro', 'Dr. José Torquato', 1020, '59920-000');
 
 -- --------------------------------------------------------
 
@@ -120,6 +115,7 @@ INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `
 CREATE TABLE `dvd` (
   `iddvd` int(11) NOT NULL,
   `idfilme` int(11) NOT NULL,
+  `nome_filme` varchar(100) NOT NULL,
   `preco_compra` double DEFAULT NULL,
   `data_compra` varchar(50) DEFAULT NULL,
   `situacao` varchar(20) NOT NULL
@@ -129,9 +125,9 @@ CREATE TABLE `dvd` (
 -- Extraindo dados da tabela `dvd`
 --
 
-INSERT INTO `dvd` (`iddvd`, `idfilme`, `preco_compra`, `data_compra`, `situacao`) VALUES
-(3, 2, 75, 'Mon Nov 12 16:37:42 GFT 2018', 'Disponível'),
-(4, 2, 25, 'Sun Nov 11 12:47:01 GFT 2018', 'Disponível');
+INSERT INTO `dvd` (`iddvd`, `idfilme`, `nome_filme`, `preco_compra`, `data_compra`, `situacao`) VALUES
+(3, 2, 'Foi assim', 75, 'Mon Nov 12 16:37:42 GFT 2018', 'Disponível'),
+(4, 1, 'A última música', 25, 'Wed Nov 14 17:14:18 GFT 2018', 'Disponível');
 
 -- --------------------------------------------------------
 
@@ -175,8 +171,7 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`idfuncionario`, `nome`, `login`, `senha`) VALUES
-(1, 'Administrador', 'First', '12345'),
-(2, 'Giovanny', 'Giova', 'qwerty');
+(1, 'Administrador', 'First', '12345');
 
 --
 -- Indexes for dumped tables
@@ -255,13 +250,13 @@ ALTER TABLE `classificacao`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `dvd`
 --
 ALTER TABLE `dvd`
-  MODIFY `iddvd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `iddvd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `filme`

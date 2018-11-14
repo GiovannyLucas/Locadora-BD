@@ -326,11 +326,13 @@ public class CadastrarDVD extends javax.swing.JFrame {
 
     private void bTN_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTN_cadastrarActionPerformed
     String idfilme = jTF_cod_Filme.getText();
+    String nomeFilme = jCB_Filme.getSelectedItem().toString();
     String preco_compra = jTF_preco.getText();
     String data_compra = jDC_dataCompra.getDate().toString();
     String situacao = jTF_situacao.getText();
 
-        if (idfilme.equals("") || preco_compra.equals("") || data_compra.equals("") || situacao.equals("")) {
+        if (idfilme.equals("") || preco_compra.equals("") || data_compra.equals("")
+            || situacao.equals("") || nomeFilme.equals("")) {
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!", 
                     "Video Locadora", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -342,6 +344,7 @@ public class CadastrarDVD extends javax.swing.JFrame {
             
             a.setCod_filme(idF);
             a.setPreco(prec_com);
+            a.setNome_filme(nomeFilme);
             a.setData_compra(data_compra);
             a.setSituacao(situacao);
             

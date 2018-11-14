@@ -269,8 +269,8 @@ public class FilmeDAO extends ExecuteSQL {
         String sql = "DELETE FROM filme WHERE idfilme = ? AND titulo = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(0, a.getCodigo());
-            ps.setString(0, a.getTitulo());
+            ps.setInt(1, a.getCodigo());
+            ps.setString(2, a.getTitulo());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

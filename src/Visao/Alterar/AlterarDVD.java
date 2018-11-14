@@ -408,6 +408,7 @@ public class AlterarDVD extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     String codigo = jTF_Codigo.getText();
+    String nomeFilme = jCB_Filme.getSelectedItem().toString();
     String situacao = jTF_Situacao.getText();
     String codigo_filme = jTF_cod_filme.getText();
     String preco = jTF_preco.getText();
@@ -417,7 +418,8 @@ public class AlterarDVD extends javax.swing.JFrame {
     if (data_alterada.equals("")) {
         data_alterada = data_padrao;
     }
-    if (situacao.equals("") || preco.equals("") || data_padrao.equals("") || codigo_filme.equals("")){
+    if (situacao.equals("") || preco.equals("") || data_padrao.equals("")
+        || codigo_filme.equals("") || nomeFilme.equals("")){
         JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!",
                     "Video Locadora", JOptionPane.WARNING_MESSAGE);
     } else {
@@ -430,6 +432,7 @@ public class AlterarDVD extends javax.swing.JFrame {
         
         a.setCodigo(cod);
         a.setCod_filme(codFilme);
+        a.setNome_filme(nomeFilme);
         a.setPreco(pre);
         a.setData_compra(data_alterada);
         a.setSituacao(situacao);

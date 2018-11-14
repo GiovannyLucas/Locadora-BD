@@ -1,11 +1,7 @@
 package Visao.Consultar;
 
-import DAO.CategoriaDAO;
-import DAO.ClienteDAO;
 import DAO.Conexao;
 import DAO.DVDDAO;
-import Modelo.Categoria;
-import Modelo.Cliente;
 import Modelo.DVD;
 import Principal.Menu;
 import java.sql.Connection;
@@ -37,9 +33,10 @@ public class ConsultarDVD extends javax.swing.JFrame {
             tbm.addRow(new String[i]);
             jTable.setValueAt(tab.getCodigo(), i, 0);
             jTable.setValueAt(tab.getCod_filme(), i, 1);
-            jTable.setValueAt(tab.getPreco(), i, 2);
-            jTable.setValueAt(tab.getData_compra(),  i, 3);
-            jTable.setValueAt(tab.getSituacao(), i, 4);
+            jTable.setValueAt(tab.getNome_filme(), i, 2);
+            jTable.setValueAt(tab.getPreco(), i, 3);
+            jTable.setValueAt(tab.getData_compra(),  i, 4);
+            jTable.setValueAt(tab.getSituacao(), i, 5);
             i++;
         }
         Conexao.FecharConexao((com.mysql.jdbc.Connection) con);
@@ -119,9 +116,17 @@ public class ConsultarDVD extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Código do filme", "Preço da compra", "Data da compra", "Situação"
+                "Código", "Código do filme", "Nome do filme", "Preço da compra", "Data da compra", "Situação"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable);
 
         jButton2.setText("TODOS");
@@ -243,9 +248,10 @@ public class ConsultarDVD extends javax.swing.JFrame {
             tbm.addRow(new String[i]);
             jTable.setValueAt(tab.getCodigo(), i, 0);
             jTable.setValueAt(tab.getCod_filme(), i, 1);
-            jTable.setValueAt(tab.getPreco(), i, 2);
-            jTable.setValueAt(tab.getData_compra(), i, 3);
-            jTable.setValueAt(tab.getSituacao(), i, 4);
+            jTable.setValueAt(tab.getNome_filme(), i, 2);
+            jTable.setValueAt(tab.getPreco(), i, 3);
+            jTable.setValueAt(tab.getData_compra(), i, 4);
+            jTable.setValueAt(tab.getSituacao(), i, 5);
             i++;
         }
         pesqCod.setText("");
@@ -271,9 +277,10 @@ public class ConsultarDVD extends javax.swing.JFrame {
             tbm.addRow(new String[i]);
             jTable.setValueAt(tab.getCodigo(), i, 0);
             jTable.setValueAt(tab.getCod_filme(), i, 1);
-            jTable.setValueAt(tab.getPreco(), i, 2);
-            jTable.setValueAt(tab.getData_compra(), i, 3);
-            jTable.setValueAt(tab.getSituacao(), i, 4);
+            jTable.setValueAt(tab.getNome_filme(), i, 2);
+            jTable.setValueAt(tab.getPreco(), i, 3);
+            jTable.setValueAt(tab.getData_compra(), i, 4);
+            jTable.setValueAt(tab.getSituacao(), i, 5);
             i++;
         }
         pesqCodFilme.setText("");

@@ -27,6 +27,7 @@ public class ClienteDAO extends ExecuteSQL {
             ps.setInt(9, a.getNumero());
             ps.setString(10, a.getCEP());
             
+            
             if (ps.executeUpdate() > 0) {
                 return "Inserido com sucesso!";
             } else {
@@ -256,8 +257,8 @@ public class ClienteDAO extends ExecuteSQL {
         String sql = "DELETE FROM cliente WHERE idcliente = ? AND nome = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(0, a.getCodigo());
-            ps.setString(0, a.getNome());
+            ps.setInt(1, a.getCodigo());
+            ps.setString(2, a.getNome());
             
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";

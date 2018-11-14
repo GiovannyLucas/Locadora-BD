@@ -36,13 +36,13 @@ public class CadastrarCliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTF_RG = new javax.swing.JTextField();
         jTF_Nome = new javax.swing.JTextField();
-        jTF_Numero = new javax.swing.JTextField();
+        jTF_NumeroCliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jTF_Rua = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        jTF_Numero = new javax.swing.JTextField();
         jTF_Bairro = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -133,12 +133,12 @@ public class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
-        jTF_Numero.setEditable(false);
-        jTF_Numero.setBackground(new java.awt.Color(204, 255, 255));
-        jTF_Numero.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jTF_Numero.addActionListener(new java.awt.event.ActionListener() {
+        jTF_NumeroCliente.setEditable(false);
+        jTF_NumeroCliente.setBackground(new java.awt.Color(204, 255, 255));
+        jTF_NumeroCliente.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jTF_NumeroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_NumeroActionPerformed(evt);
+                jTF_NumeroClienteActionPerformed(evt);
             }
         });
 
@@ -165,10 +165,10 @@ public class CadastrarCliente extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Nº:");
 
-        jTextField11.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        jTF_Numero.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jTF_Numero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                jTF_NumeroActionPerformed(evt);
             }
         });
 
@@ -239,7 +239,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTF_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTF_NumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -270,7 +270,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jTF_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTF_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
@@ -285,7 +285,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTF_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTF_NumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -307,7 +307,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jTF_Rua, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTF_Numero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTF_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,17 +400,17 @@ public class CadastrarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTF_NomeActionPerformed
 
-    private void jTF_NumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NumeroActionPerformed
+    private void jTF_NumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NumeroClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_NumeroActionPerformed
+    }//GEN-LAST:event_jTF_NumeroClienteActionPerformed
 
     private void jTF_RuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_RuaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTF_RuaActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void jTF_NumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_jTF_NumeroActionPerformed
 
     private void jTF_BairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_BairroActionPerformed
         // TODO add your handling code here:
@@ -433,8 +433,8 @@ public class CadastrarCliente extends javax.swing.JFrame {
     String rg = jTF_RG.getText();
 
         if (nome.equals("") || nascimento.equals("") || cep.equals("") || rua.equals("") ||
-                numero.equals("") || bairro.equals("") || email.equals("") || fone.equals("") || 
-                cpf.equals("") || rg.equals("")) {
+                bairro.equals("") || email.equals("") || fone.equals("") || 
+                cpf.equals("") || rg.equals("") || numero.equals("")) {
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!", 
                     "Video Locadora", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -558,11 +558,11 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jTF_Nascimento;
     private javax.swing.JTextField jTF_Nome;
     private javax.swing.JTextField jTF_Numero;
+    private javax.swing.JTextField jTF_NumeroCliente;
     private javax.swing.JTextField jTF_RG;
     private javax.swing.JTextField jTF_Rua;
     private javax.swing.JFormattedTextField jTF_Telefone;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JFormattedTextField tfCPF;
     // End of variables declaration//GEN-END:variables
 }
