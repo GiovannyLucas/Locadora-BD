@@ -186,7 +186,38 @@ public class AluguelDAO extends ExecuteSQL {
             return null;
         }   
     } 
-    
+
+    public List<Aluguel> Pesquisa_Nome_Aluguel(String cliente){
+        String sql = "SELECT idaluguel,iddvd,idcliente,hora_aluguel,data_aluguel,data_devolucao"
+                + " FROM aluguel WHERE idcliente = '"+ cliente +"'";
+       
+        List<Aluguel> lista = new ArrayList<>();
+            
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs != null) {
+                while (rs.next()) {
+                    Aluguel a = new Aluguel();
+                    a.setCod(rs.getInt(1));
+                    a.setCoddvd(rs.getInt(2));
+                    a.setCodcliente(rs.getInt(3));
+                    a.setHorario(rs.getString(4));
+                    a.setData_aluguel(rs.getString(5));
+                    a.setData_devolucao(rs.getString(6));
+                    
+                    lista.add(a);
+                }
+                return lista;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            return null;
+        }   
+    } 
+
     public boolean Testar_Classificacao(int cod){
         Boolean Resultado = false;
         try {
