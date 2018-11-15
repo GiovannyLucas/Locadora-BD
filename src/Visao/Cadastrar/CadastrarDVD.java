@@ -12,6 +12,7 @@ import Modelo.DVD;
 import Modelo.Filme;
 import Principal.Menu;
 import java.sql.Connection;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -328,10 +329,10 @@ public class CadastrarDVD extends javax.swing.JFrame {
     String idfilme = jTF_cod_Filme.getText();
     String nomeFilme = jCB_Filme.getSelectedItem().toString();
     String preco_compra = jTF_preco.getText();
-    String data_compra = jDC_dataCompra.getDate().toString();
+    String data_compra = new SimpleDateFormat("dd/MM/yyyy").format(jDC_dataCompra.getDate());
     String situacao = jTF_situacao.getText();
 
-        if (idfilme.equals("") || preco_compra.equals("") || data_compra.equals("")
+        if (idfilme.equals("") || preco_compra.equals("") || jDC_dataCompra.getDate() == null
             || situacao.equals("") || nomeFilme.equals("")) {
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!", 
                     "Video Locadora", JOptionPane.WARNING_MESSAGE);
@@ -354,6 +355,7 @@ public class CadastrarDVD extends javax.swing.JFrame {
     jTF_cod_Filme.setText("");
     jTF_preco.setText("");
     jTF_situacao.setText("");
+    jCB_Filme.setSelectedItem(0);
     
     JOptionPane.showMessageDialog(null, "Cadastro finalizado com sucesso!",
             "Video Locadora", JOptionPane.INFORMATION_MESSAGE);            
@@ -364,6 +366,7 @@ public class CadastrarDVD extends javax.swing.JFrame {
         jTF_cod_Filme.setText("");
         jTF_preco.setText("");
         jTF_situacao.setText("");
+        jCB_Filme.setSelectedItem(0);
     }//GEN-LAST:event_bTN_LimparActionPerformed
 
     private void bTN_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTN_CancelarActionPerformed

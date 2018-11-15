@@ -503,6 +503,8 @@ public class CadastrarFilme extends javax.swing.JFrame {
     jTF_codigo_cat.setText("");
     jTF_codigo_class.setText("");
     tfCapa.setText("");
+    jCB_Cat.setSelectedItem(0);
+    jCB_Class.setSelectedItem(0);
     
     JOptionPane.showMessageDialog(null, "Cadastro finalizado com sucesso!",
             "Video Locadora", JOptionPane.INFORMATION_MESSAGE);            
@@ -516,6 +518,8 @@ public class CadastrarFilme extends javax.swing.JFrame {
         jTF_codigo_cat.setText("");
         jTF_codigo_class.setText("");
         tfCapa.setText(""); 
+        jCB_Cat.setSelectedItem(0);
+        jCB_Class.setSelectedItem(0);
     }//GEN-LAST:event_bTN_LimparActionPerformed
 
     private void bTN_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTN_CancelarActionPerformed

@@ -4,6 +4,15 @@ public class Classificacao {
 
     private int codigo;
     private String nome;
+    private double preco;
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
 
     public int getCodigo() {
         return codigo;

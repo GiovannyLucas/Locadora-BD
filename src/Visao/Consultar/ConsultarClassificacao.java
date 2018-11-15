@@ -35,6 +35,7 @@ public class ConsultarClassificacao extends javax.swing.JFrame {
             tbm.addRow(new String[i]);
             jTable.setValueAt(tab.getCodigo(), i, 0);
             jTable.setValueAt(tab.getNome(), i, 1);
+            jTable.setValueAt(tab.getPreco(), i, 2);
             i++;
         }
         Conexao.FecharConexao((com.mysql.jdbc.Connection) con);
@@ -114,11 +115,11 @@ public class ConsultarClassificacao extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome"
+                "Código", "Nome", "Preço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -244,6 +245,7 @@ public class ConsultarClassificacao extends javax.swing.JFrame {
             tbm.addRow(new String[i]);
             jTable.setValueAt(tab.getCodigo(), i, 0);
             jTable.setValueAt(tab.getNome(), i, 1);
+            jTable.setValueAt(tab.getPreco(), i, 2);
             i++;
         }
         pesqNome.setText("");
@@ -275,6 +277,7 @@ public class ConsultarClassificacao extends javax.swing.JFrame {
             tbm.addRow(new String[i]);
             jTable.setValueAt(tab.getCodigo(), i, 0);
             jTable.setValueAt(tab.getNome(), i, 1);
+            jTable.setValueAt(tab.getPreco(), i, 2);
             i++;
         }
         pesqCod.setText("");

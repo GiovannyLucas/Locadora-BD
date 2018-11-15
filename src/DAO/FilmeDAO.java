@@ -96,8 +96,8 @@ public class FilmeDAO extends ExecuteSQL {
     }
 
     public List<Filme> Pesquisar_Cod_Filme(int cod){
-        String sql = "SELECT idfilme, titulo, ano, duracao, idcategoria, idclassificacao "
-                + "FROM filme WHERE idfilme = '"+ cod +"'";
+        String sql = "SELECT idfilme, titulo, ano, duracao, idcategoria, idclassificacao, "
+                + "capa FROM filme WHERE idfilme = '"+ cod +"'";
        
         List<Filme> lista = new ArrayList<>();
             
@@ -114,6 +114,7 @@ public class FilmeDAO extends ExecuteSQL {
                     a.setDuracao(rs.getString(4));
                     a.setCod_categoria(rs.getInt(5));
                     a.setCod_classificacao(rs.getInt(6));
+                    a.setCapa(rs.getString(7));
                     
                     lista.add(a);
                 }
