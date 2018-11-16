@@ -29,8 +29,6 @@ public class ExcluirClassificacao extends javax.swing.JFrame {
         AtualizaCombo();
     }
     
-    erro na constrain
-
     private void AtualizaCombo(){
         Connection con = Conexao.AbrirConexao();
         ClassificacaoDAO sql = new ClassificacaoDAO(con);

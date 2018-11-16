@@ -7,6 +7,7 @@ import DAO.FilmeDAO;
 import Modelo.Aluguel;
 import Modelo.Cliente;
 import Modelo.Filme;
+import Modelo.Listar;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,11 @@ public class ConsultarLocacao extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable);
 
         getContentPane().add(jScrollPane1);
@@ -133,6 +139,20 @@ public class ConsultarLocacao extends javax.swing.JFrame {
         
         MostrarCodigo();
     }//GEN-LAST:event_jCB_ClienteActionPerformed
+
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+        Integer linha = jTable.getSelectedRow();
+        Integer idaluguel = (Integer) jTable.getValueAt(linha, 0);
+        Integer idcliente = (Integer) jTable.getValueAt(linha, 1);
+        Integer iddvd = (Integer) jTable.getValueAt(linha, 2);
+        
+        Listar a = new Listar();
+        a.setCoddvd(iddvd);
+        a.setCodaluguel(idaluguel);
+        a.setCodcliente(idcliente);
+        
+        new EfetuarDevolucao().setVisible(true);
+    }//GEN-LAST:event_jTableMouseClicked
 
     /**
      * @param args the command line arguments

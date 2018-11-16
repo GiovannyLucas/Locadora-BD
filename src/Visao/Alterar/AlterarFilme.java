@@ -52,6 +52,7 @@ public class AlterarFilme extends javax.swing.JFrame {
             jTF_Duracao.setText("" + a.getDuracao());
             tfCapa.setText("" + a.getCapa());
         }
+        lbCapa.setIcon(new ImageIcon("C:/Locadora/" +tfCapa.getText()));
     }
     
     private void AtualizaCombo_Cat(){

@@ -237,19 +237,21 @@ public class AluguelDAO extends ExecuteSQL {
         return Resultado;
     }
     
-    public List<Funcionario> CapturarFuncionario(int cod){
-        String sql = "SELECT * FROM funcionario WHERE idfuncionario = "+ cod +"";
-        List<Funcionario> lista = new ArrayList<>();
+    public List<Aluguel> CapturarAluguel(int cod){        
+        String sql = "SELECT * FROM aluguel WHERE idaluguel = "+ cod +"";
+        List<Aluguel> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs != null) {
-                while (rs.next()) {                    
-                    Funcionario a = new Funcionario();
+                while (rs.next()) { 
+                    Aluguel a = new Aluguel();
                     a.setCod(rs.getInt(1));
-                    a.setNome(rs.getString(2));
-                    a.setLogin(rs.getString(3));
-                    a.setSenha(rs.getString(4));
+                    a.setCoddvd(rs.getInt(2));
+                    a.setCodcliente(rs.getInt(3));
+                    a.setHorario(rs.getString(4));
+                    a.setData_aluguel(rs.getString(5));
+                    a.setData_devolucao(rs.getString(6));
                     
                     lista.add(a);
                 }
@@ -322,13 +324,11 @@ public class AluguelDAO extends ExecuteSQL {
         }
     }
     
-    public String Excluir_Funcionario(Funcionario a){
-        String sql = "DELETE FROM funcionario WHERE idfuncionario = ? AND nome = ?";
+    public String Excluir_Aluguel(int a){
+        String sql = "DELETE FROM aluguel WHERE idaluguel = '"+a+"'";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(1, a.getCod());
-            ps.setString(2, a.getNome());
-            
+                       
             if (ps.executeUpdate() > 0) {
                 return "Excluído com sucesso!";
             } else {
@@ -338,5 +338,6 @@ public class AluguelDAO extends ExecuteSQL {
             return e.getMessage();
         }
     }
+    
     
 }

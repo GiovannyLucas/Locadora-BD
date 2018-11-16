@@ -20,8 +20,6 @@ public class ExcluirFilme extends javax.swing.JFrame {
         setLocationRelativeTo(this);
         AtualizaCombo(); 
     }
-
-    erro na constrain
     
     private void AtualizaCombo(){
         Connection con = Conexao.AbrirConexao();
